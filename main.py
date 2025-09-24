@@ -13,7 +13,7 @@ import webbrowser
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
-# MOCK AI RESPONSE (GLOBAL SCOPE) - (UNCHANGED)
+
 diseases_db = {
 
     "fever": ["Flu", "Malaria", "Typhoid", "COVID-19", "Common Cold", "Pneumonia"],
@@ -240,12 +240,10 @@ symptom_keywords = {
     "nausea": "Stomach Pain", "vomiting": "Stomach Pain", "stomach": "Stomach Pain", "headache": "Headache", "dizzy": "Headache", "fever": "Fever", "chills": "Fever", "abdominal cramps": "Stomach Pain", "acid reflux": "Stomach Pain", "indigestion": "Stomach Pain", "bloating": "Stomach Pain", "constipation": "Stomach Pain", "diarrhea": "Stomach Pain", "vomiting": "Stomach Pain", "stomach pain": "Stomach Pain", "food intolerance": "Stomach Pain", "gastrointestinal bleeding": "Stomach Pain", "acidic burps": "Stomach Pain", "headache": "Headache", "dizzy": "Headache", "confusion": "Headache", "memory loss": "Headache", "fainting": "Headache", "lightheadedness": "Headache", "seizures": "Headache", "difficulty concentrating": "Headache", "poor concentration": "Headache", "agitation": "Headache", "aggression": "Headache", "fever": "Fever", "chills": "Fever", "cold sweats": "Fever", "night sweats": "Fever", "persistent cough": "Fever", "coughing blood": "Fever", "sore throat": "Fever", "runny nose": "Fever", "frequent infections": "Fever", "shortness of breath": "Breathing Problem", "difficulty breathing": "Breathing Problem", "breathlessness": "Breathing Problem", "wheezing": "Breathing Problem", "chest tightness": "Breathing Problem", "palpitations": "Heart Problem", "heart palpitations": "Heart Problem", "chest pain": "Heart Problem", "chest tightness": "Heart Problem", "cold hands/feet": "Heart Problem", "swelling": "Heart Problem", "ankle swelling": "Heart Problem", "joint pain": "Muscle/Joint Pain", "joint swelling": "Muscle/Joint Pain", "joint stiffness": "Muscle/Joint Pain", "morning stiffness": "Muscle/Joint Pain", "muscle cramps": "Muscle/Joint Pain", "muscle weakness": "Muscle/Joint Pain", "muscle pain": "Muscle/Joint Pain", "leg cramps": "Muscle/Joint Pain", "leg weakness": "Muscle/Joint Pain", "back pain": "Muscle/Joint Pain", "shoulder pain": "Muscle/Joint Pain", "neck pain": "Muscle/Joint Pain", "elbow pain": "Muscle/Joint Pain", "wrist pain": "Muscle/Joint Pain", "foot pain": "Muscle/Joint Pain", "heel pain": "Muscle/Joint Pain", "rash": "Skin Problem", "acne": "Skin Problem", "dry skin": "Skin Problem", "skin discoloration": "Skin Problem", "hair loss": "Skin Problem", "hair thinning": "Skin Problem", "pale skin": "Skin Problem", "yellowing of skin/eyes": "Skin Problem", "red eyes": "Skin Problem", "facial swelling": "Skin Problem", "frequent urination": "Urinary Problem", "urinary frequency": "Urinary Problem", "urinary urgency": "Urinary Problem", "blood in urine": "Urinary Problem", "burning urination": "Urinary Problem", "anxiety": "Mental Health", "panic attacks": "Mental Health", "depression": "Mental Health", "restlessness": "Mental Health", "insomnia": "Mental Health", "excessive sleep": "Mental Health", "blurred vision": "Eye Problem", "sensitivity to light": "Eye Problem", "ear pain": "Ear Problem", "ear ringing": "Ear Problem", "hearing loss": "Ear Problem", "nosebleeds": "ENT Problem", "frequent nose congestion": "ENT Problem", "fatigue": "General Weakness", "chronic fatigue": "General Weakness", "weakness": "General Weakness", "weight loss": "General Weakness", "weight gain": "General Weakness", "loss of appetite": "General Weakness", "hunger pangs": "General Weakness", "excessive sweating": "General Weakness", "hot flashes": "General Weakness", "pale skin": "General Weakness", "delirium": "General Weakness", "agitation": "General Weakness", "giddiness": "General Weakness", "abnormal bleeding": "General Weakness", "unexplained bruises": "General Weakness", "lumps": "General Weakness"
 }
 
-# Define the logo path as a raw string to handle backslashes correctly
+tly
 LOGO_PATH = r"C:\Users\Nemitha\OneDrive\Desktop\istockphoto-1578253407-612x612.jpg"
 
-# --------------------------
-# APPLICATION CLASS
-# --------------------------
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -256,7 +254,7 @@ class App(ctk.CTk):
         self.logo_photo = None
         self.logo_label = None
 
-        # Set application icon (left corner)
+
         try:
             icon_image = Image.open(LOGO_PATH)
             icon_image = icon_image.resize((64, 64), Image.Resampling.LANCZOS)
@@ -264,18 +262,18 @@ class App(ctk.CTk):
         except Exception as e:
             print(f"Error loading icon: {e}")
 
-        # Placeholder frame for the logo/main content
+
         self.content_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.content_frame.pack(fill="both", expand=True)
 
         self.display_logo_and_start()
 
     def display_logo_and_start(self):
-        # Clear existing content
+
         for widget in self.content_frame.winfo_children():
             widget.destroy()
 
-        # Display the large logo
+
         try:
             logo_image = Image.open(LOGO_PATH)
             logo_image = logo_image.resize((300, 300), Image.Resampling.LANCZOS)
@@ -287,23 +285,23 @@ class App(ctk.CTk):
             self.logo_label = ctk.CTkLabel(self.content_frame, text="Health Assistant", font=("Arial", 24, "bold"))
             self.logo_label.pack(expand=True, padx=20, pady=20)
 
-        # Start a thread to wait and then display the main screen
+
         threading.Thread(target=self.delayed_start).start()
 
     def delayed_start(self):
-        time.sleep(3)  # Wait for 3 seconds
+        time.sleep(3)  # Wait fos
         self.after(0, self.setup_main_ui)
 
     def setup_main_ui(self):
-        # Clear the logo and other temporary widgets
+
         if self.logo_label:
             self.logo_label.destroy()
         
-        # Main frame to hold all content
+
         self.main_frame = ctk.CTkFrame(self.content_frame, fg_color="transparent")
         self.main_frame.pack(fill="both", expand=True, padx=20, pady=20)
         
-        # Heading label at the top
+
         self.heading_label = ctk.CTkLabel(
             self.main_frame,
             text="",
@@ -312,7 +310,7 @@ class App(ctk.CTk):
         )
         self.heading_label.pack(pady=(20, 10))
         
-        # Scrollable frame for content to be placed in
+
         self.scrollable_frame = ctk.CTkScrollableFrame(self.main_frame, fg_color=("#3a4f61", "#2c3e50"))
         self.scrollable_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
@@ -332,7 +330,7 @@ class App(ctk.CTk):
         self.heading_label.configure(text="")
         self.type_text(self.heading_label, "Welcome! Choose an option:")
 
-        # Large, professional-looking buttons
+
         button_width = 300
         button_height = 60
         button_font = ("Roboto", 18, "bold")
@@ -344,7 +342,7 @@ class App(ctk.CTk):
             width=button_width,
             height=button_height,
             font=button_font,
-            corner_radius=10 # Added rounded corners
+            corner_radius=10 
         )
         symptom_btn.pack(pady=20, ipadx=20, ipady=10)
 
@@ -389,9 +387,8 @@ class App(ctk.CTk):
         )
         developed_by_label.pack(pady=(20, 5))
 
-    # --------------------------
-    # SYMPTOM CHECKER
-    # --------------------------
+
+
     def symptom_checker_screen(self):
         self.clear_content()
         self.heading_label.configure(text="")
@@ -424,7 +421,7 @@ class App(ctk.CTk):
         import re
         from difflib import get_close_matches
 
-        # Normalize and split input
+
         symptoms_text = symptoms_text.lower()
         symptoms = [s.strip() for s in re.split(r"[,\sand]+", symptoms_text) if s.strip()]
 
@@ -437,28 +434,28 @@ class App(ctk.CTk):
 
         for user_symptom in symptoms:
             matched = False
-            # Check against keyword dictionary
+
             for keyword, standardized_symptom in symptom_keywords.items():
                 if keyword.lower() in user_symptom:
                     matched_symptoms.add(standardized_symptom.lower())
                     matched = True
-            # Try fuzzy match
+
             if not matched:
                 close = get_close_matches(user_symptom, db_keys, n=1, cutoff=0.6)
                 if close:
                     matched_symptoms.add(close[0])
                     matched = True
-            # Try substring match
+
             if not matched:
                 for db_key in db_keys:
                     if user_symptom in db_key or db_key in user_symptom:
                         matched_symptoms.add(db_key)
                         matched = True
-            # Keep raw if still no match
+
             if not matched:
                 matched_symptoms.add(user_symptom)
 
-        # Gather conditions for each matched symptom
+
         all_conditions = []
         for s in matched_symptoms:
             matched_conditions = set()
@@ -468,7 +465,7 @@ class App(ctk.CTk):
             if matched_conditions:
                 all_conditions.append(matched_conditions)
 
-        # Combine conditions (intersection preferred)
+
         if len(all_conditions) > 1:
             common_conditions = set.intersection(*all_conditions)
             if common_conditions:
@@ -520,9 +517,6 @@ class App(ctk.CTk):
         )
         home_btn.pack(pady=5)
 
-    # --------------------------
-    # BMI CALCULATOR
-    # --------------------------
     def bmi_screen(self):
         self.clear_content()
         self.heading_label.configure(text="")
@@ -565,9 +559,6 @@ class App(ctk.CTk):
         )
         back_btn.pack(pady=5)
 
-    # --------------------------
-    # CALORIE COUNTER
-    # --------------------------
     def calorie_counter_screen(self):
         self.clear_content()
         self.heading_label.configure(text="")
@@ -635,15 +626,13 @@ class App(ctk.CTk):
         )
         back_btn.pack(pady=5)
 
-    # --------------------------
-    # ABOUT SCREEN
-    # --------------------------
+
     def about_screen(self):
         self.clear_content()
         self.heading_label.configure(text="")
         self.type_text(self.heading_label, "About")
 
-        # Display the small logo at the top of the about screen
+
         try:
             logo_image = Image.open(LOGO_PATH)
             logo_image = logo_image.resize((150, 150), Image.Resampling.LANCZOS)
@@ -655,7 +644,7 @@ class App(ctk.CTk):
             logo_label = ctk.CTkLabel(self.scrollable_frame, text="Health Assistant", font=("Arial", 20, "bold"))
             logo_label.pack(pady=(20, 10))
 
-        # Main about text
+
         about_text = (
             "This Health Assistant application is designed to provide quick and accessible "
             "health information. It features a Symptom Checker to identify potential "
@@ -674,7 +663,7 @@ class App(ctk.CTk):
             font=("Roboto", 14)
         ).pack(pady=(0, 20), padx=10)
 
-        # Developer info
+
         ctk.CTkLabel(
             self.scrollable_frame,
             text="Developer",
@@ -694,7 +683,6 @@ class App(ctk.CTk):
             font=("Roboto", 18, "bold")
         ).pack(pady=(10, 5))
 
-        # Contact details
         ctk.CTkLabel(
             self.scrollable_frame,
             text=f"Email: nemithaprs@gmail.com",
@@ -707,7 +695,7 @@ class App(ctk.CTk):
             font=("Roboto", 14)
         ).pack(pady=5)
         
-        # Back button
+ n
         back_btn = ctk.CTkButton(
             self.scrollable_frame,
             text="Back",
@@ -720,9 +708,7 @@ class App(ctk.CTk):
         )
         back_btn.pack(pady=(20, 5))
 
-# --------------------------
-# START APP
-# --------------------------
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()
